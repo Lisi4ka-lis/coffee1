@@ -5,6 +5,47 @@
     box-sizing: border-box;
 }
 
+.logos{
+    font-weight: 700;
+}
+
+.highlight {
+    background-color: #C7A17A;
+    color:#fff;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+/* Альтернатива - текст не повернут, а идет вертикально */
+.vertical-nav nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 40px 20px;
+    width: 100%;
+}
+
+.vertical-nav a {
+    writing-mode: horizontal-tb; /* Горизонтальный текст */
+    transform: none;
+    padding: 15px 20px;
+    margin: 5px 0;
+    text-align: left;
+    width: 100%;
+    border-left: 3px solid transparent;
+    transition: all 0.3s;
+}
+
+.vertical-nav a:hover {
+    border-left-color: #C7A17A;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding-left: 30px;
+}
+
+.vertical-nav a::after {
+    display: none; /* Убираем подчеркивание */
+}
+
 body {
     font-family: 'Arial', sans-serif;
     color: #333;
@@ -21,66 +62,48 @@ header {
     overflow: hidden;
 }
 
-
 header img[alt="Баннер с кофе на главной странице"] {
     width: 70%;
     height: 100%;
     object-fit: cover;
     position: absolute;
     top: 0;
-    
     right: 0px;
     z-index: 1;
 }
 
-header > div {
+.nav-container {
     position: absolute;
     top: 0px;
-    right: -564px ;
-    transform: translateX(-50%);
+    right: 15%;
+    transform: translateX(50%);
     z-index: 3;
-    background-color:#415167;
+    background-color: #415167;
     padding: 30px 100px;
     border-radius: 0px;
     box-shadow: 0 4px 15px rgba(211, 201, 201, 0.1);
-    word-spacing: 1px;
-    color: #f9f9f9;
-
+    width: 30%;
+    text-align: center;
 }
 
-nav ul {
+nav {
     display: flex;
-    justify-content: flex-start; /* Выравнивание по правому краю */
-    gap: 25px;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: space-between;
-    flex: 1;
-
-
-}
-
-nav li {
-    margin: 0;
-    white-space: nowrap;
-    justify-content: space-between;
-
-
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
 }
 
 nav a {
     text-decoration: none;
-    color: #333;
+    color: #f9f9f9;
     font-weight: bold;
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     transition: color 0.3s;
     position: relative;
-    justify-content: space-between;
-    gap: 40px;
-    padding: 3px 5px;
-    color: #f9f9f9;
+    padding: 5px 10px;
+    white-space: nowrap;
 }
 
 nav a:hover {
@@ -94,7 +117,7 @@ nav a::after {
     left: 0;
     width: 0;
     height: 2px;
-    background-color:#C7A17A;
+    background-color: #C7A17A;
     transition: width 0.3s;
 }
 
@@ -113,19 +136,18 @@ nav a:hover::after {
 
 header h1 {
     position: absolute;
-    bottom: 120px;
-    left: 30%;
-    transform: translateX(-50%);
+    top: 50%;
+    left: 15%;
+    transform: translateY(-50%);
     z-index: 2;
     color: #415167;
     font-size: 52px;
-    text-align: left;
     text-transform: uppercase;
     letter-spacing: 3px;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
     font-weight: 300;
-    width: 50%;
+    width: 40%;
     line-height: 1.2;
+    margin: 0;
 }
 
 /* Основное содержимое */
@@ -135,114 +157,31 @@ main {
     padding: 80px 20px;
 }
 
-/* Секция "Кофе - Создай свою базу" - ВЕРТИКАЛЬНЫЙ ВАРИАНТ */
-.base-section {
-    text-align: center;
-    margin-bottom: 100px;
-}
-
-.base-section h2 {
-    font-size: 16px;
-    text-transform: uppercase;
-    color: #c09b5f;
-    letter-spacing: 3px;
-    margin-bottom: 15px; /* Уменьшили отступ */
-    font-weight: 600;
-}
-
-.base-section h3 {
-    font-size: 42px;
-    color: #333;
-    margin-bottom: 70px;
-    font-weight: 300;
-    position: relative;
-    padding-bottom: 20px;
-}
-
-.base-section h3::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background-color: #c5a063;
-}
-
-/* ВЕРТИКАЛЬНАЯ СЕТКА */
-.features {
-    display: flex;
-    flex-direction: column; /* Главное изменение: вертикальное направление */
-    align-items: center; /* Центрируем все элементы */
-    gap: 40px; /* Расстояние между блоками */
-    max-width: 800px; /* Ограничиваем ширину */
-    margin: 0 auto; /* Центрируем */
-}
-
-.feature {
-    width: 100%; /* Занимает всю доступную ширину */
-    max-width: 600px; /* Максимальная ширина блока */
-    padding: 30px 40px;
-    transition: transform 0.3s, box-shadow 0.3s;
-    background-color: #f9f9f9; /* Легкий фон для выделения */
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-}
-
-.feature:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
-
-.feature img {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 25px;
-    object-fit: contain;
-}
-
-.feature h4 {
-    font-size: 22px;
-    margin-bottom: 20px;
-    color: #333;
-    font-weight: 600;
-}
-
-.feature p {
-    font-size: 16px;
-    color: #666;
-    line-height: 1.8;
-    max-width: 100%; /* Убираем фиксированную ширину */
-    margin: 0 auto;
-}
-
 /* Секция "Выберите Свой Любимый" */
 .favorites-section {
     margin-bottom: 100px;
+    text-align: center;
 }
 
-.favorites-section h2 {
+.favorites-section .section-subtitle {
     font-size: 16px;
     text-transform: uppercase;
     color: #151D28;
     letter-spacing: 3px;
-    text-align: center;
     margin-bottom: 15px;
     font-weight: 600;
 }
 
-.favorites-section h3 {
+.favorites-section .section-title {
     font-size: 42px;
     color: #333;
-    text-align: center;
     margin-bottom: 70px;
     font-weight: 300;
     position: relative;
     padding-bottom: 20px;
 }
 
-.favorites-section h3::after {
+.favorites-section .section-title::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -258,19 +197,18 @@ main {
     justify-content: center;
     flex-wrap: wrap;
     gap: 30px;
-
 }
 
 .product {
-    flex: 0 0 calc(50% - 15px);
-    min-width: 270px;
+    flex: 0 0 calc(25% - 23px);
+    min-width: 250px;
     background-color: #f9f9f9;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
     transition: transform 0.4s, box-shadow 0.4s;
-    box-sizing: border-box;
-
+    display: flex;
+    flex-direction: column;
 }
 
 .product:hover {
@@ -278,70 +216,69 @@ main {
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
 }
 
-.product img {
+.product-image img {
     width: 100%;
     height: 240px;
     object-fit: cover;
 }
 
-.price {
+.product-price {
     font-size: 28px;
     color: #000000;
     font-weight: bold;
     padding: 20px 25px 10px;
 }
 
-.product h4 {
+.product-title {
     font-size: 24px;
     padding: 0 25px 15px;
     color: #151D28;
     font-weight: 600;
+    margin: 0;
 }
 
-.product p {
+.product-description {
     font-size: 16px;
     color: #666;
-    padding: 0 25px 25px;
-    min-height: 70px;
+    padding: 0 25px 15px;
+    flex-grow: 1;
+    margin: 0;
 }
 
-.buttons {
+.product-buttons {
     padding: 0 25px 25px;
     display: flex;
     gap: 15px;
 }
 
-.btn-buy {
-    flex: 1;
-    padding: 10px 10px ;
-    background-color: #C7A17A;
-    color: white;
+.btn {
+    padding: 12px 20px;
     border: none;
     border-radius: 30px;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s;
     font-size: 16px;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.btn-buy {
+    background-color: #C7A17A;
+    color: white;
+    flex: 1;
 }
 
 .btn-buy:hover {
-    background-color:#C7A17A;
+    background-color: #b8916b;
     transform: scale(1.05);
 }
 
 .btn-details {
-    flex: 1;
-    padding: 10px 10px;
     background-color: transparent;
     color: #c5a063;
     border: 2px solid #c5a063;
-    border-radius: 30px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s;
-    font-size: 16px;
-    letter-spacing: 0.5px;
+    flex: 1;
 }
 
 .btn-details:hover {
@@ -349,8 +286,6 @@ main {
     color: white;
     transform: scale(1.05);
 }
-
-
 
 /* Секция "Подарочный набор" */
 .giftset-section {
@@ -372,20 +307,22 @@ main {
     background: linear-gradient(90deg, #c5a063, #e6c28c);
 }
 
-.section-subtitle {
+.giftset-section .section-subtitle {
     font-size: 30px;
     text-transform: uppercase;
     color: #1e1a13;
     letter-spacing: 2px;
     margin-bottom: 15px;
     font-weight: 600;
+    text-align: center;
 }
 
-.section-title {
+.giftset-section .section-title {
     font-size: 42px;
     color: #333;
     margin-bottom: 50px;
     font-weight: 300;
+    text-align: center;
 }
 
 .giftset-content {
@@ -394,14 +331,19 @@ main {
     gap: 60px;
 }
 
-.giftset-content img {
-    width: 80%;
+.giftset-image {
+    flex: 1;
+}
+
+.giftset-image img {
+    width: 100%;
+    max-width: 500px;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 .giftset-info {
-    width: 55%;
+    flex: 1;
 }
 
 .giftset-price {
@@ -438,7 +380,7 @@ main {
     align-items: flex-start;
 }
 
-.detail img {
+.detail-icon img {
     width: 40px;
     height: 40px;
     margin-bottom: 10px;
@@ -456,18 +398,48 @@ main {
     font-weight: 600;
 }
 
+.giftset-buttons {
+    display: flex;
+    gap: 15px;
+}
+
 /* Секция "Комбо Фильтр-кофе" */
 .combo-section {
     margin-bottom: 80px;
 }
 
-.combo-section .subtitle,
-.combo-section .title {
+.combo-section .section-header {
     text-align: center;
+    margin-bottom: 50px;
 }
 
-.combo-section .title {
-    margin-bottom: 70px;
+.combo-section .section-subtitle {
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #151D28;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.combo-section .section-title {
+    font-size: 42px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 300;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.combo-section .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: #c5a063;
 }
 
 .combos {
@@ -485,6 +457,8 @@ main {
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: transform 0.4s, box-shadow 0.4s;
+    display: flex;
+    flex-direction: column;
 }
 
 .combo:hover {
@@ -492,7 +466,7 @@ main {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
-.combo img {
+.combo-image img {
     width: 100%;
     height: 250px;
     object-fit: cover;
@@ -500,24 +474,27 @@ main {
 
 .combo-info {
     padding: 30px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
-.combo-info h4 {
+.combo-title {
     font-size: 26px;
     color: #333;
     margin-bottom: 20px;
     font-weight: 600;
 }
 
-.combo-info p {
+.combo-description {
     font-size: 16px;
     color: #666;
     line-height: 1.8;
     margin-bottom: 25px;
-    min-height: 90px;
+    flex-grow: 1;
 }
 
-.prices {
+.combo-prices {
     margin-bottom: 25px;
 }
 
@@ -534,6 +511,12 @@ main {
     text-decoration: line-through;
 }
 
+.combo-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: auto;
+}
+
 /* Подвал */
 footer {
     background-color: #2a2a2a;
@@ -546,16 +529,12 @@ footer {
 
 /* Адаптивность */
 @media (max-width: 1200px) {
-    .features,
-    .products,
-    .combos {
+    .products {
         justify-content: center;
     }
     
-    .feature,
-    .product,
-    .combo {
-        min-width: 300px;
+    .product {
+        flex: 0 0 calc(50% - 15px);
         max-width: 350px;
     }
     
@@ -564,46 +543,56 @@ footer {
         gap: 40px;
     }
     
-    .giftset-content img {
+    .giftset-image img {
         width: 80%;
-    }
-    
-    .giftset-info {
-        width: 100%;
+        margin: 0 auto;
+        display: block;
     }
     
     header h1 {
         font-size: 42px;
-        bottom: 100px;
+        left: 10%;
+    }
+}
+
+@media (max-width: 992px) {
+    .combos {
+        justify-content: center;
+    }
+    
+    .combo {
+        min-width: 300px;
+        max-width: 350px;
     }
 }
 
 @media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        gap: 15px;
-        align-items: center;
+    .nav-container {
+        padding: 20px;
     }
     
-    header > div {
-        width: 90%;
-        padding: 20px;
+    nav {
+        gap: 20px;
+        flex-direction: column;
+        align-items: center;
     }
     
     header h1 {
         font-size: 32px;
-        bottom: 80px;
-        padding: 0 20px;
+        width: 80%;
+        left: 10%;
+        text-align: center;
     }
     
     .logo {
-        width: 180px;
-        left: 50px;
+        width: 120px;
+        left: 20px;
+        top: 10px;
     }
     
-    .base-section h3,
-    .favorites-section h3,
-    .title {
+    .favorites-section .section-title,
+    .giftset-section .section-title,
+    .combo-section .section-title {
         font-size: 32px;
     }
     
@@ -616,39 +605,33 @@ footer {
         gap: 30px;
     }
     
-    .feature,
-    .product,
-    .combo {
-        min-width: 100%;
+    .product {
+        flex: 0 0 100%;
+        max-width: 350px;
     }
     
-    .buttons {
+    .product-buttons,
+    .giftset-buttons,
+    .combo-buttons {
         flex-direction: column;
-    }
-    
-    .btn-buy,
-    .btn-details {
-        width: 100%;
     }
 }
 
 @media (max-width: 480px) {
     header h1 {
         font-size: 24px;
-        bottom: 60px;
         letter-spacing: 2px;
     }
     
-    .base-section h2,
-    .favorites-section h2,
-    .subtitle {
+    .favorites-section .section-subtitle,
+    .combo-section .section-subtitle {
         font-size: 14px;
         letter-spacing: 2px;
     }
     
-    .base-section h3,
-    .favorites-section h3,
-    .title {
+    .favorites-section .section-title,
+    .giftset-section .section-title,
+    .combo-section .section-title {
         font-size: 28px;
         margin-bottom: 40px;
     }
