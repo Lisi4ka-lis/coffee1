@@ -3,69 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet"  href="styles.css">
     <title>Revo-cofe</title>
 </head>
-<body class="body">
+<body>
     <header>
-        <img src="assets/img/Баннер.png" alt="Баннер с кофе на главной странице">
-        
-        <div class="nav-container">
-            <div class="vertical-nav">
-                <nav>
-                    <a href="#">ГЛАВНАЯ</a>
-                    <a href="#">КОФЕ</a>
-                    <a href="#">ЦВЕТНОЙ ФИЛЬТР</a>
-                    <a href="#">КОМБИНИРОВАННЫЙ ФИЛЬТР</a>
-                    <a href="#">ПОДАРОЧНЫЙ НАБОР</a>
-                    <a href="#">КОНТАКТЫ</a>
-                </nav>
-            </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню" aria-expanded="false">
+            <span class="menu-toggle__line"></span>
+            <span class="menu-toggle__line"></span>
+            <span class="menu-toggle__line"></span>
+        </button>
+                
+        <div class="nav-menu" id="navMenu">
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li><a href="#" class="nav__link">ГЛАВНАЯ</a></li>
+                    <li><a href="#" class="nav__link">КОФЕ</a></li>
+                    <li><a href="#" class="nav__link">ЦВЕТНОЙ ФИЛЬТР</a></li>
+                    <li><a href="#" class="nav__link">КОМБИНИРОВАННЫЙ ФИЛЬТР</a></li>
+                    <li><a href="#" class="nav__link">ПОДАРОЧНЫЙ НАБОР</a></li>
+                    <li><a href="#" class="nav__link">КОНТАКТЫ</a></li>
+                </ul>
+            </nav>
         </div>
-        <img src="logo.png" alt="лого" class="logo">
-        <h1 class="logos">Ваш <span class="highlight">персонализированный</span> кофе</h1>
+        
+        </nav>
+        <img src="assets/icons/LOGO.png" alt="лого" class="logo">
+        <h1>Ваш персонализированный кофе</h1>
+        <img src="assets/img/banner.png" alt="Баннер с кофе на главной странице">
     </header>
 
     <main> 
-        <!-- Секция 2: Выберите свой любимый -->
-        <section class="favorites-section">
-            <h2 class="section-subtitle">Ваш Персонализированный Кофе.</h2>
-            <h3 class="section-title">КОФЕ СОЗДАСТ ВАШЕ НАСТРОЕНИЕ</h3>
-            
-            <div class="products">
-                <div class="product">
-                    <div>
-                        <img src="assets/icons/кофейня.png" alt="картинка для Revo Morning">
+        <selection id="coffee" class="section features">
+            <h2 class="selection__title">КОФЕ: СОЗДАЙТЕ СВОЮ ОСНОВУ</h2>
+            <h3 class="selection__subtitle">Ваш Пресонализированный Кофе</h3>
+
+            <div class="features__grid">
+                <div class="feature-card">
+                    <div class="feature-card__icon">
+                        <img src="assets/icons/ic.png" alt="Магазин кофейных зёрен">
                     </div>
-                    <h4 class="product-title">Происхождение</h4>
-                    <p class="product-description">Кофе в зернах Арабика, качество международного стандарта.</p>
+                    <h4 class="feature-card__title">Происхождение</h4>
+                    <p class="feature-card__description">Зерна Арабики и Роюутсы, соотвествующие международным стандартам качества.</p>
                 </div>
-                
-                <div class="product">
-                    <div>
-                        <img src="assets/icons/вывеска.png" alt="картинка для Revo Origin">
+
+                <div class="feature-card">
+                    <div class="feature-card__icon">
+                        <img src="assets/icons/IC(1).png" alt="Вывеска кофейного магазина">
                     </div>
-                    <h4 class="product-title">Качество</h4>
-                    <p class="product-description">Каждое кофейное зернышко - это результат высокой концентрации кофейных мастеров.</p>
+                    <h4 class="feature-card__title">Сорта зёрен</h4>
+                    <p class="feature-card__description">70% качества чашки кофе завсити от происхождения и качества зелёного зерна.</p>
                 </div>
-                
-                <div class="product">
-                    <div>
-                        <img src="assets/icons/упаковки_кофе.png" alt="картинка для Revo everyday">
+
+                <div class="feature-card">
+                    <div class="feature-card__icon">
+                        <img src="assets/icons/IC(2).png" alt="Стаканчики для кофе">
                     </div>
-                    <h4 class="product-title">Зерна</h4>
-                    <p class="product-description">Качество кофейной чашки на 70% зависит от происхождения и качества зеленых зерен</p>
+                    <h4 class="feature-card__title">Качество</h4>
+                    <p class="feature-card__description">Каждое зерно кофе - это результат интенсивного труда мастера кофе.</p>
                 </div>
-                
-                <div class="product">
-                    <div>
-                        <img src="assets/icons/кофемашина.png" alt="картинка для Revo Bold">
+
+                <div class="feature-card">
+                    <div class="feature-card__icon">
+                        <img src="assets/icons/IC(3).png" alt="Кофемашина">
                     </div>
-                    <h4 class="product-title">Подготовка</h4>
-                    <p class="product-description">Кофейные зерна измельчаются, а затем выдерживаются в течение длительного времени.</p>
+                    <h4 class="feature-card__title">Приготовление</h4>
+                    <p class="feature-card__description">Зерна кофе преображаются в процессе тщательной и строгой обжарки и помола.</p>
                 </div>
-            </div>
-        </section>
+            </div>    
+        </selection>
 
 
         <section class="favorites-section">
@@ -75,7 +81,7 @@
             <div class="products">
                 <div class="product">
                     <div class="product-image">
-                        <img src="assets/img/жёлтый_кофе.png" alt="картинка для Revo Morning">
+                        <img src="assets/img/IMAGE.png" alt="картинка для Revo Morning">
                     </div>
                     <div class="product-price">99.000</div>
                     <h4 class="product-title">Revo Morning</h4>
@@ -88,7 +94,7 @@
                 
                 <div class="product">
                     <div class="product-image">
-                        <img src="assets/img/кофе_оранжевый.png" alt="картинка для Revo Origin">
+                        <img src="assets/img/image(1).png" alt="картинка для Revo Origin">
                     </div>
                     <div class="product-price">139.000</div>
                     <h4 class="product-title">Revo Origin</h4>
@@ -101,7 +107,7 @@
                 
                 <div class="product">
                     <div class="product-image">
-                        <img src="assets/img/кофе_синий.png" alt="картинка для Revo everyday">
+                        <img src="assets/img/IMAGE(2).png" alt="картинка для Revo everyday">
                     </div>
                     <div class="product-price">85.000</div>
                     <h4 class="product-title">Revo Everyday</h4>
@@ -114,7 +120,7 @@
                 
                 <div class="product">
                     <div class="product-image">
-                        <img src="assets/img/кофе_коричневый.png" alt="картинка для Revo Bold">
+                        <img src="assets/img/IMAGE(3).png" alt="картинка для Revo Bold">
                     </div>
                     <div class="product-price">75.000</div>
                     <h4 class="product-title">Revo Bold</h4>
@@ -127,6 +133,7 @@
             </div>
         </section>
 
+
         <section class="giftset-section">
             <div class="section-header">
                 <h3 class="section-subtitle">Лучший подарок для лучшего друга</h3>
@@ -135,17 +142,17 @@
             
             <div class="giftset-content">
                 <div class="giftset-image">
-                    <img src="assets/img/кофе.png" alt="Картинка для подарочного набора">
+                    <img src="assets/img/pr-0018-r.png" alt="Картинка для подарочного набора">
                 </div>
                 
                 <div class="giftset-info">
                     <div class="giftset-price">285.000</div>
-                    <h2 class="giftset-name">Подарочный набор "Вьетнамский фильтр-кофе"</h2>
+                    <div class="giftset-name">Подарочный набор "Вьетнамский фильтр-кофе"</div>
                     <p class="giftset-description">Идеальный подарок для ценителей кофе. Зерна кофе, которые Revo тщательно отбирает, обжаривает и измельчает с использованием технологий и секретов, перенятых у знаменитых мастеров, вместе с любовью и страстью создателей кофе... создают чистейшие чашки кофе, предназначенные только для вас.</p>
                     <div class="giftset-details">
                         <div class="detail">
                             <div class="detail-icon">
-                                <img src="assets/icons/горы.png" alt="иконка высота">
+                                <img src="assets/icons/IC_Mountain.png" alt="иконка высота">
                             </div>
                             <p class="detail-label">Высота</p>
                             <p class="detail-value">700-800м</p>
@@ -153,7 +160,7 @@
                         
                         <div class="detail">
                             <div class="detail-icon">
-                                <img src="assets/icons/зерна кофе.png" alt="иконка зерна">
+                                <img src="assets/icons/IC_coffee.png" alt="иконка зерна">
                             </div>
                             <p class="detail-label">Сорт зерен</p>
                             <p class="detail-value">Fine Robusta Blend</p>
@@ -167,80 +174,87 @@
                 </div>
             </div>
         </section>
-        
         <section class="combo-section">
-            <div class="section-header">
-                <h3 class="section-subtitle">Ваш персонализированный кофе</h3>
-                <h2 class="section-title">Комбо Фильтр-кофе</h2>
+    <div class="section-header">
+        <h3 class="section-subtitle">Ваш персонализированный кофе</h3>
+        <h2 class="section-title">Комбо Фильтр-кофе</h2>
+    </div>
+    
+    <div class="combos">
+
+
+        <div class="combo">
+            <div class="combo-image">
+                <img src="assets/img/image(6).png" alt="Комбо Revo-Bold">
             </div>
             
-            <div class="combos">
-                <div class="combo">
-                    <div class="combo-image">
-                        <img src="assets/img/коричневый_кофе_с_капсулой.png" alt="Комбо Revo-Bold">
-                    </div>
-                    
-                    <div class="combo-info">
-                        <h4 class="combo-title">Комбо Revo Bold</h4>
-                        <p class="combo-description">Содержание кофеина в Revo Насыщенный достаточно высокое, чтобы взбодрить Вас для работы</p>
-                        
-                        <div class="combo-prices">
-                            <span class="current-price">147.000</span>
-                            <span class="old-price">155.000</span>
-                        </div>
-                        
-                        <div class="combo-buttons">
-                            <button class="btn btn-buy">КУПИТЬ</button>
-                            <button class="btn btn-details">ПОДРОБНЕЕ</button>
-                        </div>
-                    </div>
+            <div class="combo-info">
+                <h4 class="combo-title">Комбо Revo Bold</h4>
+                <p class="combo-description">Содержание кофеина в Revo Насыщенный достаточно высокое, чтобы взбодрить Вас для работы</p>
+                
+                <div class="combo-prices">
+                    <span class="current-price">147.000</span>
+                    <span class="old-price">155.000</span>
                 </div>
                 
-                <div class="combo">
-                    <div class="combo-image">
-                        <img src="assets/img/синий_кофе_с_капсулой.png" alt="Комбо Revo-Everyday">
-                    </div>
-                    
-                    <div class="combo-info">
-                        <h4 class="combo-title">Комбо Revo Everyday</h4>
-                        <p class="combo-description">Revo Everyday - это смесь горьковатого вкуса зерен Робуста и аромата шоколада</p>
-                        
-                        <div class="combo-prices">
-                            <span class="current-price">156.000</span>
-                            <span class="old-price">165.000</span>
-                        </div>
-                        
-                        <div class="combo-buttons">
-                            <button class="btn btn-buy">КУПИТЬ</button>
-                            <button class="btn btn-details">ПОДРОБНЕЕ</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="combo">
-                    <div class="combo-image">
-                        <img src="assets/img/красный_кофе_с_капсулой.png" alt="Комбо Revo Honey">
-                    </div>
-                    
-                    <div class="combo-info">
-                        <h4 class="combo-title">Комбо Revo Honey</h4>
-                        <p class="combo-description">Honey - в названии Revo Honey происходит от метода обработки зерен Арабики</p>
-                        
-                        <div class="combo-prices">
-                            <span class="current-price">275.000</span>
-                            <span class="old-price">260.000</span>
-                        </div>
-                        
-                        <div class="combo-buttons">
-                            <button class="btn btn-buy">КУПИТЬ</button>
-                            <button class="btn btn-details">ПОДРОБНЕЕ</button>
-                        </div>
-                    </div>
+                <div class="combo-buttons">
+                    <button class="btn btn-buy">КУПИТЬ</button>
+                    <button class="btn btn-details">ПОДРОБНЕЕ</button>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+        
 
+        <div class="combo">
+            <div class="combo-image">
+                <img src="assets/img/image(7).png" alt="Комбо Revo-Everyday">
+            </div>
+            
+            <div class="combo-info">
+                <h4 class="combo-title">Комбо Revo Everyday</h4>
+                <p class="combo-description">Revo Everyday - это смесь горьковатого вкуса зерен Робуста и аромата шоколада</p>
+                
+                <div class="combo-prices">
+                    <span class="current-price">156.000</span>
+                    <span class="old-price">165.000</span>
+                </div>
+                
+                <div class="combo-buttons">
+                    <button class="btn btn-buy">КУПИТЬ</button>
+                    <button class="btn btn-details">ПОДРОБНЕЕ</button>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="combo">
+            <div class="combo-image">
+                <img src="assets/img/image(8).png" alt="Комбо Revo Honey">
+            </div>
+            
+            <div class="combo-info">
+                <h4 class="combo-title">Комбо Revo Honey</h4>
+                <p class="combo-description">Honey - в названии Revo Honey происходит от метода обработки зерен Арабики</p>
+                
+                <div class="combo-prices">
+                    <span class="current-price">275.000</span>
+                    <span class="old-price">260.000</span>
+                </div>
+                
+                <div class="combo-buttons">
+                    <button class="btn btn-buy">КУПИТЬ</button>
+                    <button class="btn btn-details">ПОДРОБНЕЕ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+        
+    </main>
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх"> 
+        ↑
+    </button>
+    <script src="menu.js"></script>
     <footer>
         <p>@ Revo Coffee Vietnam - 2018</p>
     </footer>

@@ -1,49 +1,7 @@
-/* ===== СБРОС СТИЛЕЙ И БАЗОВЫЕ НАСТРОЙКИ ===== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-.logos{
-    font-weight: 700;
-}
-
-.highlight {
-    background-color: #C7A17A;
-    color:#fff;
-    padding: 2px 5px;
-    border-radius: 3px;
-}
-
-/* Альтернатива - текст не повернут, а идет вертикально */
-.vertical-nav nav {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 40px 20px;
-    width: 100%;
-}
-
-.vertical-nav a {
-    writing-mode: horizontal-tb; /* Горизонтальный текст */
-    transform: none;
-    padding: 15px 20px;
-    margin: 5px 0;
-    text-align: left;
-    width: 100%;
-    border-left: 3px solid transparent;
-    transition: all 0.3s;
-}
-
-.vertical-nav a:hover {
-    border-left-color: #C7A17A;
-    background-color: rgba(255, 255, 255, 0.05);
-    padding-left: 30px;
-}
-
-.vertical-nav a::after {
-    display: none; /* Убираем подчеркивание */
 }
 
 body {
@@ -54,7 +12,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Шапка */
 header {
     position: relative;
     width: 100%;
@@ -72,59 +29,6 @@ header img[alt="Баннер с кофе на главной странице"] 
     z-index: 1;
 }
 
-.nav-container {
-    position: absolute;
-    top: 0px;
-    right: 15%;
-    transform: translateX(50%);
-    z-index: 3;
-    background-color: #415167;
-    padding: 30px 100px;
-    border-radius: 0px;
-    box-shadow: 0 4px 15px rgba(211, 201, 201, 0.1);
-    width: 30%;
-    text-align: center;
-}
-
-nav {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-}
-
-nav a {
-    text-decoration: none;
-    color: #f9f9f9;
-    font-weight: bold;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: color 0.3s;
-    position: relative;
-    padding: 5px 10px;
-    white-space: nowrap;
-}
-
-nav a:hover {
-    color: #C7A17A;
-}
-
-nav a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: #C7A17A;
-    transition: width 0.3s;
-}
-
-nav a:hover::after {
-    width: 100%;
-}
-
 .logo {
     position: absolute;
     top: 20px;
@@ -136,43 +40,196 @@ nav a:hover::after {
 
 header h1 {
     position: absolute;
-    top: 50%;
-    left: 15%;
-    transform: translateY(-50%);
+    bottom: 120px;
+    left: 30%;
+    transform: translateX(-50%);
     z-index: 2;
     color: #415167;
     font-size: 52px;
+    text-align: left;
     text-transform: uppercase;
     letter-spacing: 3px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
     font-weight: 300;
-    width: 40%;
+    width: 50%;
     line-height: 1.2;
-    margin: 0;
 }
 
-/* Основное содержимое */
+/* НАВИГАЦИОННОЕ МЕНЮ - ФИКСИРОВАННОЕ */
+.nav-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    background-color: #415167;
+    z-index: 1000;
+    padding: 15px 20px;
+}
+
+.nav__list {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    justify-content: flex-end;
+}
+
+.nav__link {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-size: 17px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.nav__link:hover,
+.nav__link.active {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+/* БУРГЕР МЕНЮ */
+.menu-toggle {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.menu-toggle__line {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.menu-toggle.active .menu-toggle__line:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.menu-toggle.active .menu-toggle__line:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active .menu-toggle__line:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -8px);
+}
+
 main {
     max-width: 1200px;
     margin: 0 auto;
     padding: 80px 20px;
 }
 
-/* Секция "Выберите Свой Любимый" */
-.favorites-section {
-    margin-bottom: 100px;
-    text-align: center;
+.header__title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-.favorites-section .section-subtitle {
+.section {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section__title {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    color: #2c5530;
+}
+
+.section__subtitle {
+    font-size: 1.25rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #666;
+    font-weight: 400;
+}
+
+.features {
+    background-color: white;
+}
+
+.features__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.feature-card__icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-card__icon img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.feature-card__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #2c5530;
+}
+
+.feature-card__description {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.base-section {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.base-section h2 {
     font-size: 16px;
     text-transform: uppercase;
-    color: #151D28;
+    color: #c09b5f;
     letter-spacing: 3px;
-    margin-bottom: 15px;
+    margin-bottom: 15px; 
     font-weight: 600;
 }
 
-.favorites-section .section-title {
+.base-section h3 {
     font-size: 42px;
     color: #333;
     margin-bottom: 70px;
@@ -181,7 +238,88 @@ main {
     padding-bottom: 20px;
 }
 
-.favorites-section .section-title::after {
+.base-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: #c5a063;
+}
+
+.features {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    gap: 40px; 
+    max-width: 800px; 
+    margin: 0 auto; 
+}
+
+.feature {
+    width: 100%; 
+    max-width: 600px; 
+    padding: 30px 40px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    background-color: #f9f9f9; 
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.feature img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 25px;
+    object-fit: contain;
+}
+
+.feature h4 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: 600;
+}
+
+.feature p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.8;
+    max-width: 100%; 
+    margin: 0 auto;
+}
+
+.favorites-section {
+    margin-bottom: 100px;
+}
+
+.favorites-section h2 {
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #151D28;
+    letter-spacing: 3px;
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.favorites-section h3 {
+    font-size: 42px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 70px;
+    font-weight: 300;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.favorites-section h3::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -200,15 +338,14 @@ main {
 }
 
 .product {
-    flex: 0 0 calc(25% - 23px);
-    min-width: 250px;
+    flex: 0 0 calc(50% - 15px);
+    min-width: 270px;
     background-color: #f9f9f9;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
     transition: transform 0.4s, box-shadow 0.4s;
-    display: flex;
-    flex-direction: column;
+    box-sizing: border-box;
 }
 
 .product:hover {
@@ -216,69 +353,70 @@ main {
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
 }
 
-.product-image img {
+.product img {
     width: 100%;
     height: 240px;
     object-fit: cover;
 }
 
-.product-price {
+.price {
     font-size: 28px;
     color: #000000;
     font-weight: bold;
     padding: 20px 25px 10px;
 }
 
-.product-title {
+.product h4 {
     font-size: 24px;
     padding: 0 25px 15px;
     color: #151D28;
     font-weight: 600;
-    margin: 0;
 }
 
-.product-description {
+.product p {
     font-size: 16px;
     color: #666;
-    padding: 0 25px 15px;
-    flex-grow: 1;
-    margin: 0;
+    padding: 0 25px 25px;
+    min-height: 70px;
 }
 
-.product-buttons {
+.buttons {
     padding: 0 25px 25px;
     display: flex;
     gap: 15px;
 }
 
-.btn {
-    padding: 12px 20px;
+.btn-buy {
+    flex: 1;
+    padding: 10px 10px ;
+    background-color: #C7A17A;
+    color: white;
     border: none;
     border-radius: 30px;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s;
     font-size: 16px;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-}
-
-.btn-buy {
-    background-color: #C7A17A;
-    color: white;
-    flex: 1;
+    letter-spacing: 1px;
 }
 
 .btn-buy:hover {
-    background-color: #b8916b;
+    background-color:#C7A17A;
     transform: scale(1.05);
 }
 
 .btn-details {
+    flex: 1;
+    padding: 10px 10px;
     background-color: transparent;
     color: #c5a063;
     border: 2px solid #c5a063;
-    flex: 1;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 16px;
+    letter-spacing: 0.5px;
 }
 
 .btn-details:hover {
@@ -287,7 +425,6 @@ main {
     transform: scale(1.05);
 }
 
-/* Секция "Подарочный набор" */
 .giftset-section {
     background-color: #f8f4f0;
     padding: 70px 50px;
@@ -307,22 +444,20 @@ main {
     background: linear-gradient(90deg, #c5a063, #e6c28c);
 }
 
-.giftset-section .section-subtitle {
+.section-subtitle {
     font-size: 30px;
     text-transform: uppercase;
     color: #1e1a13;
     letter-spacing: 2px;
     margin-bottom: 15px;
     font-weight: 600;
-    text-align: center;
 }
 
-.giftset-section .section-title {
+.section-title {
     font-size: 42px;
     color: #333;
     margin-bottom: 50px;
     font-weight: 300;
-    text-align: center;
 }
 
 .giftset-content {
@@ -331,19 +466,14 @@ main {
     gap: 60px;
 }
 
-.giftset-image {
-    flex: 1;
-}
-
-.giftset-image img {
-    width: 100%;
-    max-width: 500px;
+.giftset-content img {
+    width: 80%;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 .giftset-info {
-    flex: 1;
+    width: 55%;
 }
 
 .giftset-price {
@@ -380,7 +510,7 @@ main {
     align-items: flex-start;
 }
 
-.detail-icon img {
+.detail img {
     width: 40px;
     height: 40px;
     margin-bottom: 10px;
@@ -398,48 +528,17 @@ main {
     font-weight: 600;
 }
 
-.giftset-buttons {
-    display: flex;
-    gap: 15px;
-}
-
-/* Секция "Комбо Фильтр-кофе" */
 .combo-section {
     margin-bottom: 80px;
 }
 
-.combo-section .section-header {
+.combo-section .subtitle,
+.combo-section .title {
     text-align: center;
-    margin-bottom: 50px;
 }
 
-.combo-section .section-subtitle {
-    font-size: 16px;
-    text-transform: uppercase;
-    color: #151D28;
-    letter-spacing: 3px;
-    margin-bottom: 15px;
-    font-weight: 600;
-}
-
-.combo-section .section-title {
-    font-size: 42px;
-    color: #333;
-    margin-bottom: 20px;
-    font-weight: 300;
-    position: relative;
-    padding-bottom: 20px;
-}
-
-.combo-section .section-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background-color: #c5a063;
+.combo-section .title {
+    margin-bottom: 70px;
 }
 
 .combos {
@@ -457,8 +556,6 @@ main {
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: transform 0.4s, box-shadow 0.4s;
-    display: flex;
-    flex-direction: column;
 }
 
 .combo:hover {
@@ -466,7 +563,7 @@ main {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
-.combo-image img {
+.combo img {
     width: 100%;
     height: 250px;
     object-fit: cover;
@@ -474,27 +571,24 @@ main {
 
 .combo-info {
     padding: 30px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
 }
 
-.combo-title {
+.combo-info h4 {
     font-size: 26px;
     color: #333;
     margin-bottom: 20px;
     font-weight: 600;
 }
 
-.combo-description {
+.combo-info p {
     font-size: 16px;
     color: #666;
     line-height: 1.8;
     margin-bottom: 25px;
-    flex-grow: 1;
+    min-height: 90px;
 }
 
-.combo-prices {
+.prices {
     margin-bottom: 25px;
 }
 
@@ -511,13 +605,6 @@ main {
     text-decoration: line-through;
 }
 
-.combo-buttons {
-    display: flex;
-    gap: 15px;
-    margin-top: auto;
-}
-
-/* Подвал */
 footer {
     background-color: #2a2a2a;
     color: #fff;
@@ -527,121 +614,395 @@ footer {
     letter-spacing: 1px;
 }
 
-/* Адаптивность */
-@media (max-width: 1200px) {
+.scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 56px;
+    height: 56px;
+    background: #c5a063;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.scroll-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+.scroll-top:hover {
+    background: #c09b5f;
+    transform: scale(1.1);
+}
+
+.scroll-top:active {
+    transform: scale(0.95);
+}
+
+/* ============================= */
+/* МЕДИА-ЗАПРОСЫ */
+/* ============================= */
+
+/* МОБИЛЬНАЯ ВЕРСИЯ (до 600px) */
+@media (max-width: 900px) {
+    .menu-toggle {
+        display: flex;
+    }
+    .header {
+        position: sticky;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        height: 100vh;
+        background-color: #415167;
+        padding: 80px 30px 30px;
+        transition: right 0.3s ease;
+        z-index: 1000;
+        overflow-y: auto;
+    }
+    
+    .nav-menu.active {
+        right: 0;
+    }
+    
+    .nav__list {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        width: 100%;
+    }
+    
+    .nav__link {
+        display: block;
+        padding: 15px 0;
+        font-size: 18px;
+        width: 100%;
+    }
+
+    header {
+        height: 70vh;
+        min-height: 500px;
+        padding-top: 80px;
+    }
+    
+    header img[alt="Баннер с кофе на главной странице"] {
+        width: 100%;
+        right: 0;
+    }
+    
+    .logo {
+        top: 20px;
+        left: 20px;
+        width: 120px;
+    }
+    
+    header h1 {
+        position: absolute;
+        bottom: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        font-size: 28px;
+        text-align: center;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+        letter-spacing: 1px;
+        line-height: 1.3;
+    }
+    
+    main {
+        padding: 40px 15px;
+        max-width: 100%;
+    }
+    
+    section {
+        padding: 40px 0;
+        margin-bottom: 40px;
+    }
+    
+    .section-subtitle {
+        font-size: 13px;
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+    }
+    
+    .section-title {
+        font-size: 28px;
+        margin-bottom: 30px;
+        padding-bottom: 15px;
+    }
+    
+    .section-title::after {
+        width: 60px;
+        height: 2px;
+    }
+    
+    .products {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+    
+    .product {
+        flex: 0 0 100%;
+        max-width: 320px;
+        min-width: unset;
+    }
+    
+    .product img {
+        height: 200px;
+    }
+    
+    .product-buttons {
+        flex-direction: column;
+    }
+    
+    .btn-buy, .btn-details {
+        width: 100%;
+        padding: 12px 20px;
+    }
+    
+    .giftset-section {
+        padding: 40px 20px;
+        margin-bottom: 40px;
+    }
+    
+    .giftset-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .giftset-image {
+        width: 100%;
+    }
+    
+    .giftset-image img {
+        width: 100%;
+        height: auto;
+    }
+    
+    .giftset-info {
+        width: 100%;
+    }
+    
+    .giftset-price {
+        font-size: 36px;
+        margin-bottom: 15px;
+    }
+    
+    .giftset-name {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+    
+    .giftset-description {
+        font-size: 16px;
+        margin-bottom: 30px;
+        line-height: 1.6;
+    }
+    
+    .giftset-details {
+        flex-direction: column;
+        gap: 25px;
+        margin-bottom: 30px;
+    }
+    
+    .detail-icon img {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .combos {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+    
+    .combo {
+        min-width: 100%;
+        max-width: 320px;
+    }
+    
+    .combo img {
+        height: 200px;
+    }
+    
+    .combo-info {
+        padding: 25px;
+    }
+    
+    .combo-title {
+        font-size: 22px;
+    }
+    
+    .combo-description {
+        font-size: 15px;
+        min-height: auto;
+    }
+    
+    .current-price {
+        font-size: 28px;
+    }
+    
+    .old-price {
+        font-size: 20px;
+    }
+    
+    .combo-buttons {
+        flex-direction: column;
+    }
+    
+    footer {
+        padding: 30px 20px;
+        font-size: 14px;
+    }
+
+    .scroll-top {
+        width: 52px;
+        height: 52px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 22px;
+    }
+}
+
+/* ДЕСКТОПНАЯ ВЕРСИЯ (601px и выше) */
+@media (min-width: 901px) {
+    .menu-toggle {
+        display: none !important;
+    }
+    
+    .nav-menu {
+        position: fixed !important;
+        top: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        background-color: #415167 !important;
+        padding: 15px 20px !important;
+    }
+    
+    .nav__list {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: flex-end !important;
+        gap: 20px !important;
+    }
+    
+    .nav__link {
+        display: inline-block !important;
+        padding: 8px 16px !important;
+        font-size: 17px !important;
+        width: auto !important;
+    }
+}
+
+/* ПЛАНШЕТНАЯ ВЕРСИЯ (601px - 1024px) */
+@media (min-width: 900px) and (max-width: 1024px) {
+    .nav__list {
+        gap: 15px;
+    }
+    
+    .nav__link {
+        font-size: 15px;
+        padding: 6px 12px;
+    }
+    
     .products {
         justify-content: center;
     }
     
     .product {
         flex: 0 0 calc(50% - 15px);
-        max-width: 350px;
+        max-width: 300px;
     }
     
-    .giftset-content {
-        flex-direction: column;
-        gap: 40px;
-    }
-    
-    .giftset-image img {
-        width: 80%;
-        margin: 0 auto;
-        display: block;
-    }
-    
-    header h1 {
-        font-size: 42px;
-        left: 10%;
-    }
-}
-
-@media (max-width: 992px) {
     .combos {
         justify-content: center;
     }
     
     .combo {
         min-width: 300px;
-        max-width: 350px;
-    }
-}
-
-@media (max-width: 768px) {
-    .nav-container {
-        padding: 20px;
+        max-width: 300px;
     }
     
-    nav {
-        gap: 20px;
-        flex-direction: column;
+    .giftset-content {
+        flex-direction: row;
         align-items: center;
     }
     
-    header h1 {
-        font-size: 32px;
-        width: 80%;
-        left: 10%;
-        text-align: center;
+    .giftset-image {
+        width: 45%;
+    }
+    
+    .giftset-info {
+        width: 55%;
+        padding-left: 30px;
     }
     
     .logo {
         width: 120px;
-        left: 20px;
-        top: 10px;
     }
     
-    .favorites-section .section-title,
-    .giftset-section .section-title,
-    .combo-section .section-title {
-        font-size: 32px;
+    header h1 {
+        font-size: 36px;
+        bottom: 100px;
     }
-    
-    .giftset-section {
-        padding: 50px 30px;
-    }
-    
-    .giftset-details {
-        flex-direction: column;
-        gap: 30px;
-    }
-    
-    .product {
-        flex: 0 0 100%;
-        max-width: 350px;
-    }
-    
-    .product-buttons,
-    .giftset-buttons,
-    .combo-buttons {
-        flex-direction: column;
+     .scroll-top {
+         width: 52px;
+        height: 52px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 22px;
     }
 }
 
+/* ОЧЕНЬ МАЛЕНЬКИЕ ЭКРАНЫ (до 480px) */
 @media (max-width: 480px) {
+    header {
+        height: 60vh;
+        min-height: 400px;
+    }
+    
     header h1 {
+        font-size: 22px;
+        bottom: 60px;
+    }
+    
+    .logo {
+        width: 100px;
+    }
+    
+    .section-title {
         font-size: 24px;
-        letter-spacing: 2px;
     }
     
-    .favorites-section .section-subtitle,
-    .combo-section .section-subtitle {
-        font-size: 14px;
-        letter-spacing: 2px;
+    .product-title, .combo-title {
+        font-size: 20px;
     }
     
-    .favorites-section .section-title,
-    .giftset-section .section-title,
-    .combo-section .section-title {
-        font-size: 28px;
-        margin-bottom: 40px;
+    .product-price {
+        font-size: 24px;
     }
     
     .giftset-price {
-        font-size: 36px;
+        font-size: 32px;
     }
     
     .giftset-name {
-        font-size: 22px;
+        font-size: 20px;
     }
     
     .current-price {
@@ -652,7 +1013,20 @@ footer {
         font-size: 18px;
     }
     
-    main {
-        padding: 50px 15px;
+    .btn {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+}
+
+/* БОЛЬШИЕ ЭКРАНЫ (1025px и выше) */
+@media (min-width: 1025px) {
+    .nav__list {
+        gap: 30px;
+    }
+    
+    .nav__link {
+        font-size: 17px;
+        padding: 8px 16px;
     }
 }
